@@ -1,5 +1,6 @@
 const User = require("../modals/userModal")
 const abhinav = require("bcrypt")
+const jwt = require("jsonwebtoken")
 
 const validatePassword = async (upass,user)=>{
     //upass - user entered password
@@ -30,7 +31,10 @@ const register = async (req,res)=>{
 
 }
 
-const getUsers = (req,res)=>{
+const getProfile =async (req,res)=>{
+    const user = await User.findById((req.user.id))
+    console.log(user)
+    res.send("Request reached controller")
     
 }
 
@@ -45,15 +49,17 @@ const loginUser = async (req,res)=>{
     else{
         const isPass = await validatePassword(password,user)
         if(isPass){
-            res.json({message:"Credentials Verified this is your login token "})
+            const token = await jwt.sign({id:user._id},"abhi@cutie")
+            console.log(token)
+            return res.json({message:"Credentials Verified this is your login token ",Btoken:token})
         }
         else{
-            res.status(401).json({message:"Arey you gave wrong credentials"})
+            return res.status(401).json({message:"Arey you gave wrong credentials"})
         }
     }
     console.log(user)
-    res.send("Processed")
+    return res.send("Processed")
     
 }
 
-module.exports = {register,loginUser,getUsers}
+module.exports = {register,loginUser,getProfile}
