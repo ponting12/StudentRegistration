@@ -20,15 +20,15 @@ const RegisterForm = () => {
         .then((res) => {
             //success block
             setMessage(res.data.message)
-            usernameRef.current.value=""
-            emailRef.current.value=""
-            passwordRef.current.value=""
+            usernameRef.current.value=" "
+            emailRef.current.value =" "
+            passwordRef.current.value=" "
         })
         .catch((err,res)=>{
             //err
-            usernameRef.current.value=""
-            emailRef.current.value=""
-            passwordRef.current.value=""
+            usernameRef.current.value=" "
+            emailRef.current.value=" "
+            passwordRef.current.value=" "
             setMessage(err.response.data.message)
             console.log(err.response.data.message)
             //setMessage(err)

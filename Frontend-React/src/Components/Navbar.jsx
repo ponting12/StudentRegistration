@@ -39,7 +39,7 @@ const Navbar = () => {
                 </a>
               </li>
             </ul>
-            <div className="d-flex gap-1">
+            <div className="d-flex gap-2">
               <Link to="/" className="btn btn-primary">
                 Register
               </Link>
