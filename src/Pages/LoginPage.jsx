@@ -11,10 +11,10 @@ const LoginPage = () => {
         <div className="row row-cols-lg-2 row-cols-1">
           <img
             className="img-fluid"
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTggnEznnjFIzRgmtlKAphAp4bFP2YBuO3Wz0xlqUzegg&s=10"
+            src="https://images.pexels.com/photos/32228263/pexels-photo-32228263.jpeg"
             alt="register image"
           ></img>
-          <div className="card p-5 shadow">
+          <div className="p-5">
             <LoginForm/>
           </div>
         </div>
