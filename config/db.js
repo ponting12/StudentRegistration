@@ -1,7 +1,9 @@
+require("dotenv").config()
+
 const mongoose = require("mongoose")
 
 const connectDB = async ()=>{
-    await mongoose.connect("mongodb://localhost:27017/AbhiDB").then(
+    await mongoose.connect(process.env.DB_CONNECTION).then(
         console.log("AbhiDB Connected successfully - ready for transactions !")
     )
 }
