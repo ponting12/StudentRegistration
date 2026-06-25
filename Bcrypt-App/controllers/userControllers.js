@@ -15,7 +15,7 @@ const register = async (req, res) => {
     const checkMail = await User.findOne({email})
 
     if(checkMail){
-        return res.status(409).json({message:" User already exists with given, mail"})
+        return res.status(409).json({message:"arey halwa,User already exists with given, mail"})
     }
 
     const password = await abhinav.hash(npassword, 12);
@@ -53,11 +53,18 @@ const loginUser = async (req, res) => {
     } else {
       return res
         .status(401)
-        .json({ message: " You gave wrong credentials" });
+        .json({ message: "Arey you gave wrong credentials" });
     }
   }
   console.log(user);
   return res.send("Processed");
 };
 
-module.exports = { register, loginUser, getProfile };
+
+const uploadImg = async (req,res)=>{
+      const file = req.file
+      res.json({message:"File uploaded successfully",file:file})
+
+}
+
+module.exports = { register, loginUser, getProfile ,uploadImg};

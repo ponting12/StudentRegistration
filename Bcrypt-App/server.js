@@ -1,6 +1,6 @@
+require("dotenv").config()
 const express = require("express")
 const cors = require("cors")
-
 const app = express()
 const userRoutes = require("./routes/userRoutes")
 app.use(express.json())
@@ -12,7 +12,7 @@ app.use("/api/v1/rrcollege/user",userRoutes)
 
 
 
-app.listen(5000,()=>{
-    console.log("server is listening at 5000")
+app.listen(process.env.PORT,()=>{
+    console.log(`server is listening at ${process.env.PORT}`)
 })
 
