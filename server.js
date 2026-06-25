@@ -8,7 +8,7 @@ const connectDB = require("./config/db")
 
 connectDB();
 app.use(cors())
-app.use("/api/v2/rrcollege/user",userRoutes)
+app.use("/api/v1/rrcollege/user",userRoutes)
 
 
 

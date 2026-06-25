@@ -60,4 +60,11 @@ const loginUser = async (req, res) => {
   return res.send("Processed");
 };
 
-module.exports = { register, loginUser, getProfile };
+
+const uploadImg = async (req,res)=>{
+      const file = req.file
+      res.json({message:"File uploaded successfully",file:file})
+
+}
+
+module.exports = { register, loginUser, getProfile ,uploadImg};
